@@ -7,7 +7,7 @@ const ClickToSearchBtn = ({ selectedName }) => {
             className="btn btn-primary mt-2"
             onClick={() => console.log(selectedName)}>
             Click to search
-                </button>
+        </button>
     )
 }
 

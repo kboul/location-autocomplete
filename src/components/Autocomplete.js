@@ -13,7 +13,8 @@ class Autocomplete extends Component {
 
     handleSearch = debounce(async query => {
         this.setState({ isLoading: true })
-        const { data: { entries: locations } } = await getLocation(query, 'en')
+        const { data: { entries: locations } }
+            = await getLocation(query, 'en')
         this.setState({ isLoading: false, locations })
     }, 1000)
 
