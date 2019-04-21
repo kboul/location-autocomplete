@@ -1,6 +1,7 @@
 import React from 'react'
 import Banner from './Banner'
 import Logo from './Logo'
+import Autocomplete from './Autocomplete'
 
 const Container = () => {
     return (
@@ -13,7 +14,7 @@ const Container = () => {
                     <Logo />
                 </div>
                 <div className="col-md-6">
-                    Autocomplete
+                    <Autocomplete />
                 </div>
             </div>
         </div>
