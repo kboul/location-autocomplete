@@ -9,25 +9,36 @@ class Autocomplete extends Component {
     state = {
         selectedName: '',
         isLoading: false,
-        locations: []
+        locations: [],
+        locationsAreEmpty: true
     }
 
     handleSearch = debounce(async query => {
         this.setState({ isLoading: true })
+
         const { data: { entries: locations } }
             = await getLocation(query, browserLanguage())
-        this.setState({ isLoading: false, locations })
+
+        this.setState({
+            isLoading: false,
+            locations,
+            locationsAreEmpty: (locations.length === 0) ? true : false
+        })
     }, 1000)
 
     handleChange = selectedOptions => {
-        if (!selectedOptions || !selectedOptions[0]) return
+        if (!selectedOptions || !selectedOptions[0]) {
+            this.setState({ locationsAreEmpty: true })
+            return
+        }
 
         const selectedName = selectedOptions[0].name
         this.setState({ selectedName })
     }
 
     render() {
-        const { locations, selectedName } = this.state
+        const { locations, selectedName,
+            locationsAreEmpty } = this.state
 
         return (
             <Fragment>
@@ -50,6 +61,7 @@ class Autocomplete extends Component {
                 />
 
                 <ClickToSearchBtn
+                    disabled={locationsAreEmpty}
                     selectedName={selectedName} />
             </Fragment>
         )
