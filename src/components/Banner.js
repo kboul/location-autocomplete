@@ -1,10 +1,13 @@
 import React from 'react'
-import { bannerContainer } from '../sass/Banner.module.sass'
+import { bannerContainer, bannerText }
+    from '../sass/Banner.module.sass'
 
 const Banner = () => {
     return (
         <div className={bannerContainer}>
-            Banner Space
+            <span className={bannerText}>
+                Banner space
+            </span>
         </div>
     )
 }
