@@ -13,7 +13,7 @@ class Autocomplete extends Component {
         locationsAreEmpty: true
     }
 
-    handleSearch = debounce(async query => {
+    handleSearch = async query => {
         this.setState({ isLoading: true })
 
         const { data: { entries: locations } }
@@ -24,7 +24,7 @@ class Autocomplete extends Component {
             locations,
             locationsAreEmpty: (locations.length === 0) ? true : false
         })
-    }, 1000)
+    }
 
     handleChange = selectedOptions => {
         if (!selectedOptions || !selectedOptions[0]) {
@@ -37,7 +37,7 @@ class Autocomplete extends Component {
     }
 
     render() {
-        const { locations, selectedLocation,
+        const { isLoading, locations, selectedLocation,
             locationsAreEmpty } = this.state
 
         return (
@@ -47,11 +47,12 @@ class Autocomplete extends Component {
                 </div>
 
                 <AsyncTypeahead
-                    id=""
+                    highlightOnlyResult
+                    id="locationSearch"
                     labelKey="name"
-                    {...this.state}
+                    isLoading={isLoading}
                     minLength={2}
-                    onSearch={this.handleSearch}
+                    onSearch={debounce(this.handleSearch, 1000)}
                     placeholder="Type a location..."
                     options={locations}
                     onChange={this.handleChange}
