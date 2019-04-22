@@ -2,11 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { googleSearch } from '../utils/googleSearch'
 
-const ClickToSearchBtn = ({ selectedLocation, disabled }) => {
+const ClickToSearchBtn = ({ selectedLocation, isButtonDisabled }) => {
     return (
         <button
             className="btn btn-primary mt-2"
-            disabled={disabled}
+            disabled={isButtonDisabled}
             onClick={() => googleSearch(selectedLocation)}>
             Click to search
         </button>
@@ -15,7 +15,7 @@ const ClickToSearchBtn = ({ selectedLocation, disabled }) => {
 
 ClickToSearchBtn.propTypes = {
     selectedLocation: PropTypes.string.isRequired,
-    disabled: PropTypes.bool.isRequired
+    isButtonDisabled: PropTypes.bool.isRequired
 }
 
 export default ClickToSearchBtn

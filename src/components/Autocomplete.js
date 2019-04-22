@@ -10,7 +10,7 @@ class Autocomplete extends Component {
         isLoading: false,
         locations: [],
         selectedLocation: '',
-        locationsAreEmpty: true
+        isButtonDisabled: true
     }
 
     handleSearch = async query => {
@@ -22,13 +22,13 @@ class Autocomplete extends Component {
         this.setState({
             isLoading: false,
             locations,
-            locationsAreEmpty: (locations.length === 0) ? true : false
+            isButtonDisabled: (locations.length === 0) ? true : false
         })
     }
 
     handleChange = selectedOptions => {
         if (!selectedOptions || !selectedOptions[0]) {
-            this.setState({ locationsAreEmpty: true })
+            this.setState({ isButtonDisabled: true })
             return
         }
 
@@ -36,9 +36,14 @@ class Autocomplete extends Component {
         this.setState({ selectedLocation })
     }
 
+    handleInputChange = (input, e) => {
+        if (input === '') 
+            this.setState({isButtonDisabled: true})
+    }
+
     render() {
         const { isLoading, locations, selectedLocation,
-            locationsAreEmpty } = this.state
+            isButtonDisabled } = this.state
 
         return (
             <Fragment>
@@ -55,6 +60,7 @@ class Autocomplete extends Component {
                     onSearch={debounce(this.handleSearch, 1000)}
                     placeholder="Type a location..."
                     options={locations}
+                    onInputChange={this.handleInputChange}
                     onChange={this.handleChange}
                     renderMenuItemChildren={option =>
                         <span>{option.name}</span>
@@ -62,7 +68,7 @@ class Autocomplete extends Component {
                 />
 
                 <ClickToSearchBtn
-                    disabled={locationsAreEmpty}
+                    isButtonDisabled={isButtonDisabled}
                     selectedLocation={selectedLocation} />
             </Fragment>
         )
