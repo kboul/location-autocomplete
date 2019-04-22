@@ -51,21 +51,28 @@ class Autocomplete extends Component {
                     What place are you looking for?
                 </div>
 
-                <AsyncTypeahead
-                    highlightOnlyResult
-                    id="locationSearch"
-                    labelKey="name"
-                    isLoading={isLoading}
-                    minLength={2}
-                    onSearch={debounce(this.handleSearch, 1000)}
-                    placeholder="Type a location..."
-                    options={locations}
-                    onInputChange={this.handleInputChange}
-                    onChange={this.handleChange}
-                    renderMenuItemChildren={option =>
-                        <span>{option.name}</span>
-                    }
-                />
+                <div className="input-group mb-3">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <AsyncTypeahead
+                        highlightOnlyResult
+                        id="locationSearch"
+                        labelKey="name"
+                        isLoading={isLoading}
+                        minLength={2}
+                        onSearch={debounce(this.handleSearch, 1000)}
+                        placeholder="Type a location..."
+                        options={locations}
+                        onInputChange={this.handleInputChange}
+                        onChange={this.handleChange}
+                        renderMenuItemChildren={option =>
+                            <span>{option.name}</span>
+                        }
+                    />
+                </div>
 
                 <ClickToSearchBtn
                     isButtonDisabled={isButtonDisabled}
