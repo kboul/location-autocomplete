@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react'
-import { getLocation } from '../services/locationService'
 import { AsyncTypeahead } from 'react-bootstrap-typeahead'
 import debounce from 'lodash.debounce'
 import ClickToSearchBtn from './ClickToSearchBtn'
+import { browserLanguage } from '../utils/browserLanguage'
+import { getLocation } from '../services/locationService'
 
 class Autocomplete extends Component {
     state = {
@@ -14,7 +15,7 @@ class Autocomplete extends Component {
     handleSearch = debounce(async query => {
         this.setState({ isLoading: true })
         const { data: { entries: locations } }
-            = await getLocation(query, 'en')
+            = await getLocation(query, browserLanguage())
         this.setState({ isLoading: false, locations })
     }, 1000)
 
