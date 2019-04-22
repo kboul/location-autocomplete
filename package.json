@@ -29,6 +29,7 @@
         "not op_mini all"
     ],
     "devDependencies": {
+        "braces": "^3.0.2",
         "tar": "^4.4.8"
     }
 }
