@@ -7,9 +7,9 @@ import { getLocation } from '../services/locationService'
 
 class Autocomplete extends Component {
     state = {
-        selectedName: '',
         isLoading: false,
         locations: [],
+        selectedLocation: '',
         locationsAreEmpty: true
     }
 
@@ -32,12 +32,12 @@ class Autocomplete extends Component {
             return
         }
 
-        const selectedName = selectedOptions[0].name
-        this.setState({ selectedName })
+        const selectedLocation = selectedOptions[0].name
+        this.setState({ selectedLocation })
     }
 
     render() {
-        const { locations, selectedName,
+        const { locations, selectedLocation,
             locationsAreEmpty } = this.state
 
         return (
@@ -62,7 +62,7 @@ class Autocomplete extends Component {
 
                 <ClickToSearchBtn
                     disabled={locationsAreEmpty}
-                    selectedName={selectedName} />
+                    selectedLocation={selectedLocation} />
             </Fragment>
         )
     }
