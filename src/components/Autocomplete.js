@@ -37,8 +37,8 @@ class Autocomplete extends Component {
     }
 
     handleInputChange = (input, e) => {
-        if (input === '') 
-            this.setState({isButtonDisabled: true})
+        if (input === '')
+            this.setState({ isButtonDisabled: true })
     }
 
     render() {
@@ -54,7 +54,10 @@ class Autocomplete extends Component {
                 <div className="input-group mb-3">
                     <div className="input-group-prepend">
                         <span className="input-group-text">
-                            <i class="fa fa-search" aria-hidden="true"></i>
+                            <i
+                                className="fa fa-search"
+                                aria-hidden="true">
+                            </i>
                         </span>
                     </div>
                     <AsyncTypeahead
