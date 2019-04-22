@@ -2,15 +2,17 @@ import React from 'react'
 import Banner from './Banner'
 import Logo from './Logo'
 import Autocomplete from './Autocomplete'
+import { bannerParentDiv, logoParentDiv }
+    from '../sass/Container.module.sass'
 
 const Container = () => {
     return (
         <div className="container-fluid mt-2">
             <div className="row">
-                <div className="col-md-1">
+                <div className={`col-md-1 ${bannerParentDiv}`}>
                     <Banner />
                 </div>
-                <div className="col-md-1">
+                <div className={`col-md-1 ${logoParentDiv}`}>
                     <Logo />
                 </div>
                 <div className="col-md-8">
