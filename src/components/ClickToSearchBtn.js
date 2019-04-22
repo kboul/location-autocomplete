@@ -5,7 +5,7 @@ import { googleSearch } from '../utils/googleSearch'
 const ClickToSearchBtn = ({ selectedLocation, isButtonDisabled }) => {
     return (
         <button
-            className="btn btn-primary mt-2"
+            className="btn btn-primary"
             disabled={isButtonDisabled}
             onClick={() => googleSearch(selectedLocation)}>
             Click to search
