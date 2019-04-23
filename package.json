@@ -31,6 +31,8 @@
     ],
     "devDependencies": {
         "braces": "^3.0.2",
+        "enzyme": "^3.9.0",
+        "enzyme-adapter-react-16": "^1.12.1",
         "tar": "^4.4.8"
     }
 }
