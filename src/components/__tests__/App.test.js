@@ -5,6 +5,6 @@ import Container from '../Container'
 
 let wrapped = shallow(<App />)
 
-it('shows <Container />', () => {
+it('contains <Container />', () => {
     expect(wrapped.find(Container).length).toEqual(1)
 })
