@@ -9,7 +9,6 @@ beforeEach(() => {
     img = wrapped.find('img')
 })
 
-
 it('contains an image element', () => {
     expect(img).toHaveLength(1)
 })
