@@ -1,3 +1,14 @@
-@media only screen and (max-width: 480px) and (max-height: 800px) 
+=buttonParentDiv()
     .buttonParentDiv
         text-align: center
+
+/* For mobiles */
+@media only screen and (max-width: 480px) and (max-height: 800px) 
+    +buttonParentDiv()
+
+/* For tablets */
+@media only screen and (max-width: 640px) and (max-height: 1136px)
+    +buttonParentDiv()
+
+@media only screen and (max-width: 720px) and (max-height: 1280px)
+    +buttonParentDiv()

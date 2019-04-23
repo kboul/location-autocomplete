@@ -1,7 +1,26 @@
+=logoParentDiv()
+    .logoParentDiv
+        text-align: center
+        margin-bottom: 20px
+
+=bannerOrder()
+    .bannerParentDiv 
+        order: 3
+    
+/* For mobiles */
 @media only screen and (max-width: 480px) and (max-height: 800px) 
     .bannerParentDiv 
         display: none
 
-    .logoParentDiv
-        text-align: center
-        margin-bottom: 20px
+    +logoParentDiv()
+
+/* For tablets */
+@media only screen and (max-width: 640px) and (max-height: 1136px)
+    +logoParentDiv()
+
+    +bannerOrder()
+
+@media only screen and (max-width: 720px) and (max-height: 1280px)
+    +logoParentDiv()
+
+    +bannerOrder()
