@@ -10,7 +10,7 @@ beforeEach(() => {
 })
 
 
-it('contains an image element />', () => {
+it('contains an image element', () => {
     expect(img).toHaveLength(1)
 })
 
