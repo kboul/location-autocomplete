@@ -7,7 +7,7 @@ import { bannerParentDiv, logoParentDiv }
 
 const Container = () => {
     return (
-        <div className="container-fluid mt-2">
+        <div className="container-fluid mt-3">
             <div className="row">
                 <div className={`col-md-1 ${bannerParentDiv}`}>
                     <Banner />
