@@ -20,19 +20,17 @@ it('contains <ClickToSearchBtn />', () => {
     expect(wrapped.find(ClickToSearchBtn)).toHaveLength(1)
 })
 
-it('turns truthy state"s isButtonDisabled when the input is empty', () => {
-    const input = wrapped.find(AsyncTypeahead)
-    // input.simulate('change', { target: { value: '' } })
+it('turns isButtonDisabled to truthy when the input is empty', () => {
     wrapped.setState({ isButtonDisabled: true })
     wrapped.instance().handleInputChange('');
     expect(wrapped.state().isButtonDisabled).toBeTruthy()
 })
 
-// it('', () => {
-//     const input = wrapped.find(AsyncTypeahead)
-//     input.simulate('change', { target: { selectedOptions: [] } })
-//     expect(wrapped.state().isButtonDisabled).toBeTruthy()
-// })
+it('', () => {
+    const input = wrapped.find(AsyncTypeahead)
+    input.simulate('change', { target: { selectedOptions: [] } })
+    expect(wrapped.state().isButtonDisabled).toBeTruthy()
+})
 
 it('contains a fa-search element', () => {
     expect(wrapped.find('.fa-search')).toHaveLength(1)
