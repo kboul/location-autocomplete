@@ -21,15 +21,20 @@ it('contains <ClickToSearchBtn />', () => {
 })
 
 it('turns isButtonDisabled to truthy when the input is empty', () => {
+    wrapped.instance().handleInputChange('')
     wrapped.setState({ isButtonDisabled: true })
-    wrapped.instance().handleInputChange('');
     expect(wrapped.state().isButtonDisabled).toBeTruthy()
 })
 
-it('', () => {
-    const input = wrapped.find(AsyncTypeahead)
-    input.simulate('change', { target: { selectedOptions: [] } })
+it('turns truthy isButtonDisabled when is passed an empty [] to handleChange method', () => {
+    wrapped.instance().handleChange([])
     expect(wrapped.state().isButtonDisabled).toBeTruthy()
+})
+
+it('changes selectedLocation state when an not empty array is passed to handleChange method', () => {
+    const selectedLocation = 'Academy of Paris, Pere Lachaise'
+    wrapped.instance().handleChange([{ name: selectedLocation }])
+    expect(wrapped.state().selectedLocation).toBe(selectedLocation)
 })
 
 it('contains a fa-search element', () => {
