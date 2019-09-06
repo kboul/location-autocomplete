@@ -2,8 +2,10 @@ import React from 'react'
 import Banner from './Banner'
 import Logo from './Logo'
 import Autocomplete from './Autocomplete'
-import { bannerParentDiv, logoParentDiv }
-    from '../sass/Container.module.sass'
+import {
+    bannerParentDiv,
+    logoParentDiv
+} from '../sass/Container.module.sass'
 
 const Container = () => {
     return (

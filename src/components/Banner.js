@@ -1,6 +1,8 @@
 import React from 'react'
-import { bannerContainer, bannerText }
-    from '../sass/Banner.module.sass'
+import {
+    bannerContainer,
+    bannerText
+} from '../sass/Banner.module.sass'
 
 const Banner = () => {
     return (

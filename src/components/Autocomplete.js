@@ -16,8 +16,9 @@ class Autocomplete extends Component {
     handleSearch = async query => {
         this.setState({ isLoading: true })
 
-        const { data: { entries: locations } }
-            = await getLocation(query, browserLanguage())
+        const {
+            data: { entries: locations }
+        } = await getLocation(query, browserLanguage())
 
         this.setState({
             isLoading: false,
@@ -42,8 +43,12 @@ class Autocomplete extends Component {
     }
 
     render() {
-        const { isLoading, locations, selectedLocation,
-            isButtonDisabled } = this.state
+        const {
+            isLoading,
+            locations,
+            selectedLocation,
+            isButtonDisabled
+        } = this.state
 
         return (
             <Fragment>
