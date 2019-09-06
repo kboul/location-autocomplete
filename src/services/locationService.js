@@ -1,7 +1,8 @@
 /**
  * 
- * @param {*} location string
- * @param {*} language string
+ * @param {string} location
+ * @param {string} language
+ * @returns {http get request}
  */
 
 import http from '../services/httpService'
